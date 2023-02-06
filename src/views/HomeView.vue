@@ -1,9 +1,19 @@
-<script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue';
-</script>
-
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <v-icon icon="mdi-vuetify"></v-icon>
+  <hello-world />
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+// Components
+import HelloWorld from '../components/HelloWorld.vue';
+
+export default defineComponent({
+  name: 'HomeView',
+
+  components: {
+    HelloWorld,
+  },
+});
+</script>
