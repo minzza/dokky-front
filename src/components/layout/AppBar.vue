@@ -11,13 +11,17 @@
 
       <v-spacer></v-spacer>
 
-      <v-responsive max-width="260">
+      <v-responsive max-width="200" max-height="100">
         <v-text-field
+          prepend-inner-icon="mdi-magnify"
           density="compact"
           hide-details
-          variant="solo"
+          variant="outlined"
+          label="검색"
         ></v-text-field>
       </v-responsive>
+      <v-btn rounded="pill" color="primary"> 로그인 </v-btn>
+      <v-btn rounded="pill" color="primary"> 회원가입 </v-btn>
     </v-container>
   </v-app-bar>
 </template>
@@ -36,3 +40,5 @@ export default {
   }),
 };
 </script>
+
+<style></style>
