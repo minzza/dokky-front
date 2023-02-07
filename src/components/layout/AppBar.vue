@@ -20,7 +20,7 @@
           label="검색"
         ></v-text-field>
       </v-responsive>
-      <v-btn rounded="pill" color="primary"> 로그인 </v-btn>
+      <v-btn rounded="pill" color="primary"> 로그인 d</v-btn>
       <v-btn rounded="pill" color="primary"> 회원가입 </v-btn>
     </v-container>
   </v-app-bar>
