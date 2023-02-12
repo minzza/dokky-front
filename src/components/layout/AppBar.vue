@@ -3,12 +3,14 @@
     <v-container class="fill-height d-flex align-center">
       <v-avatar class="me-10 ms-4" color="grey-darken-1" size="32"></v-avatar>
 
-      <v-btn v-for="link in links" :key="link" variant="text">
-        <router-link style="text-decoration: none" :to="link.url"
-          >{{ link.name }}
-        </router-link>
-      </v-btn>
-
+      <router-link
+        v-for="link in links"
+        :key="link"
+        :to="link.url"
+        style="text-decoration: none"
+      >
+        <v-btn variant="text">{{ link.name }}</v-btn>
+      </router-link>
       <v-spacer></v-spacer>
 
       <v-responsive max-width="200" max-height="100">
@@ -20,8 +22,12 @@
           label="검색"
         ></v-text-field>
       </v-responsive>
-      <v-btn rounded="pill" color="primary"> 로그인 d</v-btn>
-      <v-btn rounded="pill" color="primary"> 회원가입 </v-btn>
+      <router-link to="/signin" style="text-decoration: none">
+        <v-btn rounded="pill" color="primary"> 로그인 </v-btn>
+      </router-link>
+      <router-link to="/signup" style="text-decoration: none">
+        <v-btn rounded="pill" color="primary"> 회원가입 </v-btn>
+      </router-link>
     </v-container>
   </v-app-bar>
 </template>
