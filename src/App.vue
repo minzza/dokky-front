@@ -18,3 +18,10 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+a {
+  color: black;
+  text-decoration: none;
+}
+</style>

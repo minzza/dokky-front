@@ -12,6 +12,9 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.3.0",
+    "@fortawesome/free-regular-svg-icons": "^6.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@mdi/font": "5.9.55",
     "roboto-fontface": "*",
     "vee-validate": "^4.7.4",
@@ -21,6 +24,7 @@
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {
+    "@fortawesome/vue-fontawesome": "^3.0.3",
     "@rushstack/eslint-patch": "^1.1.4",
     "@types/node": "^18.11.12",
     "@types/webfontloader": "^1.0.0",

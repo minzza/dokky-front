@@ -1,4 +1,10 @@
-<template>메인 페이지</template>
+<template>
+  <div class="min-w-0 flex-auto">
+    <div class="hidden align-center">
+      <div class="my-8 flex flex-col md:flex-row"></div>
+    </div>
+  </div>
+</template>
 
 <script>
 export default {
@@ -6,4 +12,4 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style></style>
