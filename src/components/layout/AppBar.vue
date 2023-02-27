@@ -1,7 +1,9 @@
 <template>
   <v-app-bar flat>
     <v-container class="fill-height d-flex justify-center">
-      <v-avatar class="me-10 ms-4" color="grey-darken-1" size="32"></v-avatar>
+      <a href="/">
+        <v-avatar class="me-10 ms-4" color="grey-darken-1" size="32"></v-avatar>
+      </a>
 
       <router-link v-for="link in links" :key="link" :to="link.url">
         <v-btn variant="text">{{ link.name }}</v-btn>
@@ -23,12 +25,18 @@
       <router-link to="/signup">
         <v-btn rounded="pill" color="primary"> 회원가입 </v-btn>
       </router-link>
+
+      <AppSettingBar />
+
     </v-container>
   </v-app-bar>
 </template>
 
 <script lang="ts">
+import AppSettingBar from '@/components/layout/AppSettingBar.vue';
+
 export default {
+  components: { AppSettingBar },
   data: () => ({
     links: [
       { name: 'Q&A', url: '/questions' },

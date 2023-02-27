@@ -8,6 +8,7 @@ const events = () => import('../views/Events.vue');
 const jobs = () => import('../views/Jobs.vue');
 const notice = () => import('../views/Notice.vue');
 const newBoard = () => import('../views/board/New.vue');
+const boardDetail = () => import('../views/board/Detail.vue');
 
 export default {
   path: '/',
@@ -67,6 +68,10 @@ export default {
       path: 'notice/info',
       component: newBoard,
       props: { title : '공지사항' },
+    },
+    {
+      path: 'userts/:id/activity',
+      component: boardDetail,
     },
   ],
 };
