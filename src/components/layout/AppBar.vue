@@ -23,12 +23,18 @@
       <router-link to="/signup">
         <v-btn rounded="pill" color="primary"> 회원가입 </v-btn>
       </router-link>
+
+      <AppSetting />
+
     </v-container>
   </v-app-bar>
 </template>
 
 <script lang="ts">
+import AppSetting from '@/components/layout/AppSetting.vue';
+
 export default {
+  components: { AppSetting },
   data: () => ({
     links: [
       { name: 'Q&A', url: '/questions' },

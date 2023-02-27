@@ -10,12 +10,12 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 /* import specific icons */
-import { faUserSecret, faEye } from '@fortawesome/free-solid-svg-icons';
+import { faUserSecret, faEye, faGear, faRotateRight, faRightFromBracket, faPerson } from '@fortawesome/free-solid-svg-icons';
 
 import { faComment, faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import { loadFonts } from './plugins/webfontloader';
 
-library.add(faUserSecret, faEye, faComment, faThumbsUp);
+library.add(faUserSecret, faEye, faComment, faThumbsUp, faPerson, faGear, faRotateRight, faRightFromBracket);
 loadFonts();
 
 createApp(App)
