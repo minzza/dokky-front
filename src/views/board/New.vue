@@ -52,51 +52,67 @@
 <script>
 import Editor from "@/views/board/Editor.vue";
 export default {
-
   components: { Editor },
   props: {
     title: String
   },
-  setup() {
-    const tags = [
-      '귀찮아도',
-      '해야하는',
-      '오키도키',
-      '^____^'
-    ];
-
-    const tag = [
-      {
-        name: 'backend',
-        code: '0001'
-      },
-      {
-        name: 'frontend',
-        code: '0002'
-      },
-      {
-        name: 'java',
-        code: '0003'
-      },
-      {
-        name: 'typescript',
-        code: '0004'
-      },
-    ];
-
-    const topics = [
-      '사는 얘기',
-      '모임&스터디'
-    ];
-
+  data(){
     return {
       name: '솔솔',
       autoUpdate: true,
-      tags,
-      tag,
-      topics
+      tags: ['귀찮아도', '해야하는', '오키도키', '^____^'],
+      tag: [
+        { name: 'backend', code: '0001'},
+        { name: 'frontend', code: '0002'},
+        { name: 'java', code: '0003'},
+        { name: 'typescript', code: '0004'},
+      ],
+      topics: [
+        '사는 얘기',
+        '모임&스터디'
+      ]
     }
   },
+  // setup() {
+  //   let tags = [
+  //     '귀찮아도',
+  //     '해야하는',
+  //     '오키도키',
+  //     '^____^'
+  //   ];
+  //
+  //   let tag = [
+  //     {
+  //       name: 'backend',
+  //       code: '0001'
+  //     },
+  //     {
+  //       name: 'frontend',
+  //       code: '0002'
+  //     },
+  //     {
+  //       name: 'java',
+  //       code: '0003'
+  //     },
+  //     {
+  //       name: 'typescript',
+  //       code: '0004'
+  //     },
+  //   ];
+  //
+  //   const topics = [
+  //     '사는 얘기',
+  //     '모임&스터디'
+  //   ];
+  //
+  //   return {
+  //     name: '솔솔',
+  //     autoUpdate: true,
+  //     tags: tags,
+  //     tag: tag,
+  //     topics
+  //   }
+  // },
   methods: {
     cancelBtn() {
       alert("작성을 취소하시겠습니까?");

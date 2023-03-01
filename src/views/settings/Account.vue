@@ -6,7 +6,7 @@
           <div class="text-h6">이메일 정보</div>
         </div>
         <v-row>
-          <v-col cols="8">
+          <v-col cols="9">
             <v-text-field variant="outlined"
                           model-value="thf147@naver.com"
             ></v-text-field>
@@ -32,7 +32,7 @@
             </div>
           </v-card>
           <v-row>
-            <v-col cols="8">
+            <v-col cols="9">
               <v-checkbox label="계정 삭제에 관한 정책을 읽고 이에 동의합니다."></v-checkbox>
             </v-col>
             <v-col align-self="center">

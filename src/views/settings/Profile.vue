@@ -37,15 +37,32 @@
             </div>
           </v-col>
           <v-col align-self="center">
-            <v-img
-                :width="150"
-                :height="150"
-                aspect-ratio="1/1"
-                cover
-                src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
-                class="rounded-circle d-inline-block"
-                @click="modifyImg"
-            ></v-img>
+            <v-hover v-slot="{ isHovering, props }">
+              <v-card
+                  class="mx-auto rounded-circle"
+                  max-width="150"
+                  v-bind="props"
+              >
+                <v-img
+                    :width="150"
+                    :height="150"
+                    aspect-ratio="1/1"
+                    cover
+                    src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
+                    class="rounded-circle"
+                    @click="modifyImg"
+                >
+                  <v-expand-transition>
+                    <div
+                        v-if="isHovering"
+                        class="d-flex transition-fast-in-fast-out v-card--reveal bg-grey-lighten-4 text-h8"
+                    >
+                      변경
+                    </div>
+                  </v-expand-transition>
+                </v-img>
+              </v-card>
+            </v-hover>
           </v-col>
         </v-row>
 
@@ -87,37 +104,50 @@
 <script>
 export default {
   name: "profile",
-  setup() {
-    const tags = [
-      '귀찮아도',
-      '해야하는',
-      '오키도키',
-      '^____^'
-    ];
-
-    const tag = [
-      {
-        name: 'backend',
-        code: '0001'
-      },
-      {
-        name: 'frontend',
-        code: '0002'
-      },
-      {
-        name: 'java',
-        code: '0003'
-      },
-      {
-        name: 'typescript',
-        code: '0004'
-      },
-    ];
-
+  // setup() {
+  //   const tags = [
+  //     '귀찮아도',
+  //     '해야하는',
+  //     '오키도키',
+  //     '^____^'
+  //   ];
+  //
+  //   const tag = [
+  //     {
+  //       name: 'backend',
+  //       code: '0001'
+  //     },
+  //     {
+  //       name: 'frontend',
+  //       code: '0002'
+  //     },
+  //     {
+  //       name: 'java',
+  //       code: '0003'
+  //     },
+  //     {
+  //       name: 'typescript',
+  //       code: '0004'
+  //     },
+  //   ];
+  //
+  //   return {
+  //     autoUpdate: true,
+  //     tags,
+  //     tag,
+  //   }
+  // },
+  data(){
     return {
       autoUpdate: true,
-      tags,
-      tag,
+      tags: ['귀찮아도', '해야하는', '오키도키', '^____^'],
+      tag: [
+        { name: 'backend', code: '0001'},
+        { name: 'frontend', code: '0002'},
+        { name: 'java', code: '0003'},
+        { name: 'typescript', code: '0004'},
+      ],
+      transparent: 'rgba(255, 255, 255, 0)',
     }
   },
   methods: {
@@ -132,5 +162,12 @@ export default {
 </script>
 
 <style scoped>
-
+.v-card--reveal {
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  opacity: .9;
+  position: absolute;
+  width: 100%;
+}
 </style>
