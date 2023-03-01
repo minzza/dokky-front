@@ -24,17 +24,17 @@
         <v-btn rounded="pill" color="primary"> 회원가입 </v-btn>
       </router-link>
 
-      <AppSetting />
+      <AppSettingBar />
 
     </v-container>
   </v-app-bar>
 </template>
 
 <script lang="ts">
-import AppSetting from '@/components/layout/AppSetting.vue';
+import AppSettingBar from '@/components/layout/AppSettingBar.vue';
 
 export default {
-  components: { AppSetting },
+  components: { AppSettingBar },
   data: () => ({
     links: [
       { name: 'Q&A', url: '/questions' },
