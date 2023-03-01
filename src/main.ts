@@ -17,13 +17,16 @@ import {
     faRotateRight,
     faRightFromBracket,
     faPerson,
-    faCircleUser, faEnvelope, faUserMinus
+    faCircleUser,
+    faEnvelope,
+    faUserMinus,
+    faArrowUpFromBracket
 } from '@fortawesome/free-solid-svg-icons';
 
-import { faComment, faThumbsUp } from '@fortawesome/free-regular-svg-icons';
+import { faComment, faThumbsUp, faBookmark } from '@fortawesome/free-regular-svg-icons';
 import { loadFonts } from './plugins/webfontloader';
 
-library.add(faUserSecret, faEye, faComment, faThumbsUp, faPerson, faGear, faRotateRight, faRightFromBracket, faCircleUser, faGear, faEnvelope, faUserMinus);
+library.add(faUserSecret, faEye, faComment, faThumbsUp, faPerson, faGear, faRotateRight, faRightFromBracket, faCircleUser, faGear, faEnvelope, faBookmark, faUserMinus, faArrowUpFromBracket);
 loadFonts();
 
 createApp(App)

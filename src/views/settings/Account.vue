@@ -45,14 +45,6 @@
               </v-btn>
             </v-col>
           </v-row>
-
-          <v-banner
-              lines="three"
-              class="my-4"
-          >
-
-
-          </v-banner>
         </div>
       </v-container>
     </v-form>

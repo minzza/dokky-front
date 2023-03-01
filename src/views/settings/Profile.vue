@@ -68,7 +68,6 @@
 
         <v-divider class="my-3"></v-divider>
         <v-banner
-            lines="three"
             class="my-4"
             style="border-style: none;"
         >
@@ -79,7 +78,6 @@
         </v-banner>
 
         <v-banner
-            lines="three"
             class="my-4"
         >
           <div class="text-h6">뉴스레터 및 마케팅 메일 수신</div>
