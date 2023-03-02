@@ -41,8 +41,8 @@
         <Editor/>
 
         <div class="d-flex justify-end" style="gap:1rem">
-          <v-btn variant="outlined" @click="'cancelBtn'">취소</v-btn>
-          <v-btn variant="flat" color="info" @click="'submitBtn'">등록</v-btn>
+          <v-btn variant="outlined" @click="cancelBtn">취소</v-btn>
+          <v-btn variant="flat" color="info" @click="submitBtn">등록</v-btn>
         </div>
       </v-container>
     </v-form>
@@ -51,74 +51,47 @@
 
 <script>
 import Editor from "@/views/board/Editor.vue";
+
 export default {
   components: { Editor },
   props: {
     title: String
   },
-  data(){
-    return {
-      name: '솔솔',
-      autoUpdate: true,
-      tags: ['귀찮아도', '해야하는', '오키도키', '^____^'],
-      tag: [
+  setup() {
+    let tags = [
+        '귀찮아도',
+        '해야하는',
+        '오키도키',
+        '^____^'
+    ];
+
+    let tag = [
         { name: 'backend', code: '0001'},
         { name: 'frontend', code: '0002'},
         { name: 'java', code: '0003'},
-        { name: 'typescript', code: '0004'},
-      ],
-      topics: [
-        '사는 얘기',
-        '모임&스터디'
-      ]
-    }
-  },
-  // setup() {
-  //   let tags = [
-  //     '귀찮아도',
-  //     '해야하는',
-  //     '오키도키',
-  //     '^____^'
-  //   ];
-  //
-  //   let tag = [
-  //     {
-  //       name: 'backend',
-  //       code: '0001'
-  //     },
-  //     {
-  //       name: 'frontend',
-  //       code: '0002'
-  //     },
-  //     {
-  //       name: 'java',
-  //       code: '0003'
-  //     },
-  //     {
-  //       name: 'typescript',
-  //       code: '0004'
-  //     },
-  //   ];
-  //
-  //   const topics = [
-  //     '사는 얘기',
-  //     '모임&스터디'
-  //   ];
-  //
-  //   return {
-  //     name: '솔솔',
-  //     autoUpdate: true,
-  //     tags: tags,
-  //     tag: tag,
-  //     topics
-  //   }
-  // },
-  methods: {
-    cancelBtn() {
+        { name: 'typescript', code: '0004'}
+    ];
+
+    const topics = [
+      '사는 얘기',
+      '모임&스터디'
+    ];
+
+    const cancelBtn = () => {
       alert("작성을 취소하시겠습니까?");
-    },
-    submitBtn() {
+    }
+    const submitBtn = () => {
       alert("아직 등록은 기다리세욤");
+    }
+
+    return {
+      name: '솔솔',
+      autoUpdate: true,
+      tags,
+      tag,
+      topics,
+      cancelBtn,
+      submitBtn
     }
   }
 };

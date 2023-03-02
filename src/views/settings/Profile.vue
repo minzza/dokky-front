@@ -101,59 +101,46 @@
 
 <script>
 export default {
-  name: "profile",
-  // setup() {
-  //   const tags = [
-  //     '귀찮아도',
-  //     '해야하는',
-  //     '오키도키',
-  //     '^____^'
-  //   ];
-  //
-  //   const tag = [
-  //     {
-  //       name: 'backend',
-  //       code: '0001'
-  //     },
-  //     {
-  //       name: 'frontend',
-  //       code: '0002'
-  //     },
-  //     {
-  //       name: 'java',
-  //       code: '0003'
-  //     },
-  //     {
-  //       name: 'typescript',
-  //       code: '0004'
-  //     },
-  //   ];
-  //
-  //   return {
-  //     autoUpdate: true,
-  //     tags,
-  //     tag,
-  //   }
-  // },
-  data(){
+  setup() {
+    const tags = [
+      '귀찮아도',
+      '해야하는',
+      '오키도키',
+      '^____^'
+    ];
+
+    const tag = [
+      {
+        name: 'backend',
+        code: '0001'
+      },
+      {
+        name: 'frontend',
+        code: '0002'
+      },
+      {
+        name: 'java',
+        code: '0003'
+      },
+      {
+        name: 'typescript',
+        code: '0004'
+      },
+    ];
+
+    const modifyImg = () => {
+      alert("이미지 변경");
+    }
+    const submitBtn = () => {
+      alert("저장");
+    }
+
     return {
       autoUpdate: true,
-      tags: ['귀찮아도', '해야하는', '오키도키', '^____^'],
-      tag: [
-        { name: 'backend', code: '0001'},
-        { name: 'frontend', code: '0002'},
-        { name: 'java', code: '0003'},
-        { name: 'typescript', code: '0004'},
-      ],
-      transparent: 'rgba(255, 255, 255, 0)',
-    }
-  },
-  methods: {
-    modifyImg() {
-      alert("이미지 변경");
-    },
-    submitBtn() {
-      alert("저장");
+      tags,
+      tag,
+      modifyImg,
+      submitBtn
     }
   }
 }

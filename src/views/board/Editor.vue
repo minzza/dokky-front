@@ -6,27 +6,33 @@
 </template>
 
 <script>
-import {QuillEditor} from '@vueup/vue-quill'
+import { QuillEditor } from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css'
 
 export default {
-  name: "Editor",
   components: {
     QuillEditor
   },
-  data() {
-    return {
-      options: {
+  setup() {
+    const options =
+      {
         debug: 'info',
         modules: {
-          toolbar: ['bold', 'italic', 'underline']
+          toolbar: [
+            'bold',
+            'italic',
+            'underline'
+          ]
         },
         placeholder: '내용을 입력하세요!',
         readOnly: true,
         theme: 'snow',
       }
+
+    return {
+      options
     }
-  },
+  }
 }
 </script>
 

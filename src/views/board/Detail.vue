@@ -32,14 +32,14 @@
         </v-banner-text>
         <template v-slot:actions>
           <div class="mx-auto text-center">
-            <router-link :to="''">
+            <a @click="sharedBtn">
               <font-awesome-icon icon="fa-arrow-up-from-bracket" />
-            </router-link>
+            </a>
           </div>
           <div class="mx-auto text-center pl-4">
-            <router-link :to="''">
+            <a @click="bookmarkBtn">
               <font-awesome-icon icon="fa-regular fa-bookmark" />
-            </router-link>
+            </a>
           </div>
         </template>
       </v-banner>
@@ -65,8 +65,9 @@
             #{{ tag }}
           </v-chip>
         </v-chip-group>
-
       </div>
+
+      <v-divider class="my-3"></v-divider>
 
 
 
@@ -82,7 +83,19 @@ export default {
       'Back-end',
       'study',
     ];
-    return { tags }
+
+    const sharedBtn = () => {
+      alert("공유");
+    }
+
+    const bookmarkBtn = () => {
+      alert("북마크");
+    }
+    return {
+      tags,
+      sharedBtn,
+      bookmarkBtn
+    }
   },
 }
 </script>

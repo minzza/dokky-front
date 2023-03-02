@@ -12,7 +12,7 @@
             ></v-text-field>
           </v-col>
           <v-col align-self="center">
-            <v-btn variant="outlined">
+            <v-btn variant="outlined" @click="emailCheck">
               <font-awesome-icon icon="fa-envelope"/>
               이메일 인증
             </v-btn>
@@ -39,6 +39,7 @@
               <v-btn
                   variant="flat"
                   color="error"
+                  @click="withdrawal"
               >
                 <font-awesome-icon icon="fa-user-minus"/>
                 <span class="font-medium ml-1">회원탈퇴</span>
@@ -52,11 +53,23 @@
 </template>
 
 <script>
-import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 export default {
-  name: "account",
-  components: {FontAwesomeIcon}
+  components: { FontAwesomeIcon },
+  setup() {
+    const emailCheck = () => {
+      alert("이메일 인증");
+    }
+    const withdrawal = () => {
+      alert("회원 탈퇴");
+    }
+
+    return {
+      emailCheck,
+      withdrawal
+    }
+  }
 }
 </script>
 

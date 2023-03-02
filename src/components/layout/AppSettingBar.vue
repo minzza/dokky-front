@@ -24,7 +24,7 @@
             <span class="font-medium ml-1">활동내역</span>
           </router-link>
           <v-divider class="my-3"></v-divider>
-          <v-btn rounded variant="text" @click="'logout'">
+          <v-btn rounded variant="text" @click="logout">
             <font-awesome-icon icon="fa-right-from-bracket" />
             <span class="font-medium ml-1">로그아웃</span>
           </v-btn>
@@ -36,9 +36,14 @@
 
 <script lang="ts">
 export default {
-};
+  setup() {
+    const logout = () => {
+      alert("로그아웃 하시겠습니까?");
+    };
 
-function logout(){
-  alert("로그아웃 하시겠습니까?");
+     return {
+       logout
+     }
+  }
 }
 </script>
