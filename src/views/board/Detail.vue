@@ -106,30 +106,80 @@
             {{ item.nickName }}
           </v-banner-text>
           <v-banner-text>
-            <div class="d-inline-flex">
-              <div class="d-inline-flex align-center">
-                <font-awesome-icon icon="fa-eye" />
-                <span class="font-medium ml-1"> {{ item.activityScore }} </span>
-                <span class="sr-only">views</span>
-              </div>
-              <div class="d-inline-flex align-center">
-                · {{ item.regDt }}
-              </div>
+            <div class="d-flex">
+              <font-awesome-icon icon="fa-eye" />
+              <span class="font-medium ml-1"> {{ item.activityScore }} </span>
+              <span class="sr-only">views</span>
+              ·
+              <span class="font-medium ml-1"> {{ item.regDt }} </span>
+
+              <v-spacer></v-spacer>
+
+              <v-btn variant="text" @click="likeDecrease">
+                <font-awesome-icon icon="fa-chevron-down"/>
+              </v-btn>
+              {{ mainContents.like }}
+              <v-btn variant="text" @click="likeIncrement">
+                <font-awesome-icon icon="fa-chevron-up"/>
+              </v-btn>
             </div>
           </v-banner-text>
-          <v-html> {{ item.data }} </v-html>
+          <v-card-text> {{ item.data }} </v-card-text>
+
           <v-spacer></v-spacer>
           <v-btn
-              :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'"
-              @click="show = !show"
-          > 댓글 {{ item.childComments.length }}개 보기</v-btn>
+              variant="text"
+              v-if="item.childComments.length > 0"
+              @click="showComment(index)"
+          >
+            <font-awesome-icon
+                :icon="show ? 'fa-chevron-up' : 'fa-chevron-down'"
+                class="pr-2"
+            />
+            댓글 {{ item.childComments.length }}개 보기
+          </v-btn>
+
           <v-expand-transition>
-            <div v-show="show">
+            <div>
               <v-divider></v-divider>
 
-              <v-card-text>
-                I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
-              </v-card-text>
+              <div v-for="(child, idx) in item.childComments"
+                   :key="idx">
+                <v-banner
+                    :avatar="child.img"
+                    lines="three"
+                >
+                  <v-banner-text>
+                    {{ child.nickName }}
+                  </v-banner-text>
+                  <v-banner-text>
+                    <div class="d-flex">
+                      <font-awesome-icon icon="fa-eye" />
+                      <span class="font-medium ml-1"> {{ child.activityScore }} </span>
+                      <span class="sr-only">views</span>
+                      ·
+                      <span class="font-medium ml-1"> {{ child.regDt }} </span>
+
+                      <v-spacer></v-spacer>
+
+                      <v-btn variant="text" @click="likeDecrease">
+                        <font-awesome-icon icon="fa-chevron-down"/>
+                      </v-btn>
+                      {{ mainContents.like }}
+                      <v-btn variant="text" @click="likeIncrement">
+                        <font-awesome-icon icon="fa-chevron-up"/>
+                      </v-btn>
+                    </div>
+                  </v-banner-text>
+                  <v-card-text> {{ child.data }} </v-card-text>
+
+
+
+                </v-banner>
+
+
+
+              </div>
             </div>
           </v-expand-transition>
 
@@ -180,9 +230,24 @@ export default {
               nickName: '밈두니',
               activityScore: '2.6k',
               regDt: '1시간전',
-              data: '대댓',
+              data: '대댓1',
               like: '0',
-              img: ''
+              img: 'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg',
+            },
+            {
+              nickName: '밈두니',
+              activityScore: '2.6k',
+              regDt: '1시간전',
+              data: '대댓2',
+              like: '0',
+              img: 'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg',
+            },{
+              nickName: '밈두니',
+              activityScore: '2.6k',
+              regDt: '1시간전',
+              data: '대댓3',
+              like: '0',
+              img: 'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg',
             }
           ]
         },
@@ -194,14 +259,6 @@ export default {
           like: '1',
           img: 'https://cdn.vuetifyjs.com/images/parallax/material2.jpg',
           childComments: [
-            {
-              nickName: '밈두니2',
-              activityScore: '2.6k',
-              regDt: '1시간전',
-              data: '대댓1111',
-              like: '0',
-              img: ''
-            }
           ]
         },
         {
@@ -218,7 +275,7 @@ export default {
               regDt: '1시간전',
               data: '댓글달아유',
               like: '0',
-              img: ''
+              img: 'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg',
             }
           ]
         }
@@ -246,6 +303,10 @@ export default {
       }
     }
 
+    const showComment = (index) => {
+      alert(">>> idx : " + index);
+      return !this.show;
+    }
     return {
       mainContents,
       tags,
@@ -253,9 +314,10 @@ export default {
       bookmarkBtn,
       comment,
       writeComment,
-      show: false,
       likeIncrement,
-      likeDecrease
+      likeDecrease,
+      show: false,
+      showComment
     }
   },
 }
