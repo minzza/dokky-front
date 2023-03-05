@@ -1,9 +1,9 @@
 <template>
   <v-app-bar flat>
     <v-container class="fill-height d-flex justify-center">
-      <v-btn href="/">
+      <a href="/">
         <v-avatar class="me-10 ms-4" color="grey-darken-1" size="32"></v-avatar>
-      </v-btn>
+      </a>
 
       <router-link v-for="link in links" :key="link" :to="link.url">
         <v-btn variant="text">{{ link.name }}</v-btn>
