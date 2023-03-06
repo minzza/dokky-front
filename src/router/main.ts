@@ -70,7 +70,7 @@ export default {
       props: { title: '공지사항' },
     },
     {
-      path: 'userts/:id/activity',
+      path: 'users/:id/activity',
       component: boardDetail,
     },
   ],

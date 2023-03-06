@@ -1,8 +1,8 @@
 <template>
   <v-app id="inspire">
     <AppBar />
-    <v-main class="bg-grey-lighten-3">
-      <v-container>
+    <v-main class="">
+      <v-container class="pa-0">
         <v-card>
           <v-layout>
             <v-navigation-drawer>

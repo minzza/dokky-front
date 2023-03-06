@@ -11,18 +11,16 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 /* import specific icons */
 import {
-  faUserSecret,
-  faEye,
-  faGear,
-  faRotateRight,
-  faRightFromBracket,
-  faPerson,
-  faCircleUser,
-  faEnvelope,
-  faUserMinus,
-  faArrowUpFromBracket,
-  faChevronUp,
-  faChevronDown,
+    faUserSecret,
+    faEye,
+    faGear,
+    faRotateRight,
+    faRightFromBracket,
+    faPerson,
+    faCircleUser,
+    faEnvelope,
+    faUserMinus,
+    faArrowUpFromBracket
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -32,24 +30,7 @@ import {
 } from '@fortawesome/free-regular-svg-icons';
 import { loadFonts } from './plugins/webfontloader';
 
-library.add(
-  faUserSecret,
-  faEye,
-  faComment,
-  faThumbsUp,
-  faPerson,
-  faGear,
-  faRotateRight,
-  faRightFromBracket,
-  faCircleUser,
-  faGear,
-  faEnvelope,
-  faBookmark,
-  faUserMinus,
-  faArrowUpFromBracket,
-  faChevronUp,
-  faChevronDown,
-);
+library.add(faUserSecret, faEye, faComment, faThumbsUp, faPerson, faGear, faRotateRight, faRightFromBracket, faCircleUser, faGear, faEnvelope, faBookmark, faUserMinus, faArrowUpFromBracket);
 loadFonts();
 
 createApp(App)

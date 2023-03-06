@@ -8,7 +8,7 @@
       >
         <div class="mb-2">
           <v-list-item-title class="d-inline-flex">
-            <router-link :to="'/userts/' + item.id + '/activity'">
+            <router-link :to="'/users/' + item.id + '/activity'">
               {{ item.id }}
             </router-link>
           </v-list-item-title>
