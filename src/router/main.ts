@@ -42,35 +42,35 @@ export default {
     {
       path: 'questions/new',
       component: newBoard,
-      props: { title : '기술 궁금증 해결하기' },
+      props: { title: '기술 궁금증 해결하기' },
     },
     {
       path: 'knowledge/new',
       component: newBoard,
-      props: { title : '정보는 나눌 수록 늘어나는 것' },
+      props: { title: '정보는 나눌 수록 늘어나는 것' },
     },
     {
       path: 'community/new',
       component: newBoard,
-      props: { title : '함께 할 때 더 즐거운 순간' },
+      props: { title: '함께 할 때 더 즐거운 순간' },
     },
     {
       path: 'events/new',
       component: newBoard,
-      props: { title : '더 즐거운 정보가 가득한' },
+      props: { title: '더 즐거운 정보가 가득한' },
     },
     {
       path: 'questions/create',
       component: newBoard,
-      props: { title : '회사 등록' },
+      props: { title: '회사 등록' },
     },
     {
       path: 'notice/info',
       component: newBoard,
-      props: { title : '공지사항' },
+      props: { title: '공지사항' },
     },
     {
-      path: 'userts/:id/activity',
+      path: 'users/:id/activity',
       component: boardDetail,
     },
   ],

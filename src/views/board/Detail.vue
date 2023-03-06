@@ -1,31 +1,26 @@
 <template>
   <v-sheet min-height="70vh" rounded="lg">
     <v-container>
-      <v-banner
-          lines="one"
-          color="deep-purple-accent-4"
-      >
-        <template v-slot:prepend>
-          <v-avatar image="https://cdn.vuetifyjs.com/images/parallax/material.jpg" size="small" />
-        </template>
-
+      <v-banner :avatar="mainContents.img" lines="one">
         <v-banner-text>
-          가나다라마바사아자차카
+          {{ mainContents.title }}
         </v-banner-text>
 
         <v-banner-text>
           <div class="d-inline-flex">
             <div class="d-inline-flex align-center">
               <font-awesome-icon icon="fa-eye" />
-              <span class="font-medium ml-1"> 11 </span>
+              <span class="font-medium ml-1">
+                {{ mainContents.activityScore }}
+              </span>
               <span class="sr-only">views</span>
             </div>
             <div class="d-inline-flex align-center">
-              · 42분 전 ·
+              · {{ mainContents.regDt }} ·
             </div>
             <div class="d-inline-flex align-center">
               <font-awesome-icon icon="fa-regular fa-comment" />
-              <span class="font-medium ml-1"> 12 </span>
+              <span class="font-medium ml-1"> {{ comment.count }} </span>
               <span class="sr-only">comments</span>
             </div>
           </div>
@@ -65,7 +60,20 @@
             #{{ tag }}
           </v-chip>
         </v-chip-group>
+
+        <v-spacer></v-spacer>
+        <div class="align-end">
+          <v-btn variant="text" @click="likeDecrease">
+            <font-awesome-icon icon="fa-chevron-down" />
+          </v-btn>
+          {{ mainContents.like }}
+          <v-btn variant="text" @click="likeIncrement">
+            <font-awesome-icon icon="fa-chevron-up" />
+          </v-btn>
+        </div>
       </div>
+
+      <!--////////////////////////////////////////////////////////////////////-->
 
       <v-divider class="my-3"></v-divider>
 
@@ -76,6 +84,8 @@
 </template>
 
 <script>
+import { reactive } from 'vue';
+
 export default {
   setup() {
     const tags = [
@@ -85,21 +95,20 @@ export default {
     ];
 
     const sharedBtn = () => {
-      alert("공유");
-    }
+      alert('공유');
+    };
 
     const bookmarkBtn = () => {
       alert("북마크");
     }
     return {
+      mainContents,
       tags,
       sharedBtn,
       bookmarkBtn
     }
   },
-}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

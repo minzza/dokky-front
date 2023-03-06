@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="fill-height text-center d-flex flex-column"> </v-footer>
+  <v-footer class="border-t-sm">footer</v-footer>
 </template>
 
 <script>
