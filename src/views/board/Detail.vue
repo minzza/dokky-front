@@ -1,10 +1,7 @@
 <template>
   <v-sheet min-height="70vh" rounded="lg">
     <v-container>
-      <v-banner
-          :avatar="mainContents.img"
-          lines="one"
-      >
+      <v-banner :avatar="mainContents.img" lines="one">
         <v-banner-text>
           {{ mainContents.title }}
         </v-banner-text>
@@ -13,7 +10,9 @@
           <div class="d-inline-flex">
             <div class="d-inline-flex align-center">
               <font-awesome-icon icon="fa-eye" />
-              <span class="font-medium ml-1"> {{ mainContents.activityScore }} </span>
+              <span class="font-medium ml-1">
+                {{ mainContents.activityScore }}
+              </span>
               <span class="sr-only">views</span>
             </div>
             <div class="d-inline-flex align-center">
@@ -40,68 +39,55 @@
         </template>
       </v-banner>
       <v-textarea
-          variant="plain"
-          no-resize
-          rows="10"
-          :model-value="mainContents.data"
-          readonly
+        variant="plain"
+        no-resize
+        rows="10"
+        :model-value="mainContents.data"
+        readonly
       ></v-textarea>
       <div class="d-flex justify-space-around">
-        <v-chip-group
-            mandatory
-            selected-class="text-primary"
-        >
-          <v-chip
-              v-for="tag in tags"
-              :key="tag"
-          >
-            #{{ tag }}
-          </v-chip>
+        <v-chip-group mandatory selected-class="text-primary">
+          <v-chip v-for="tag in tags" :key="tag"> #{{ tag }} </v-chip>
         </v-chip-group>
 
         <v-spacer></v-spacer>
         <div class="align-end">
           <v-btn variant="text" @click="likeDecrease">
-            <font-awesome-icon icon="fa-chevron-down"/>
+            <font-awesome-icon icon="fa-chevron-down" />
           </v-btn>
           {{ mainContents.like }}
           <v-btn variant="text" @click="likeIncrement">
-            <font-awesome-icon icon="fa-chevron-up"/>
+            <font-awesome-icon icon="fa-chevron-up" />
           </v-btn>
         </div>
       </div>
 
-
       <!--////////////////////////////////////////////////////////////////////-->
 
       <v-divider class="my-3"></v-divider>
-      <p class="pa-2"> {{ comment.count }} 개의 댓글 </p>
+      <p class="pa-2">{{ comment.count }} 개의 댓글</p>
       <v-card class="pa-3">
-        <v-banner
-            :avatar="comment.img"
-            lines="one"
-            style="border-style: none;"
-        >
+        <v-banner :avatar="comment.img" lines="one" style="border-style: none">
           <v-textarea
-              :model-value="comment.data"
-              :readonly="!comment.data"
-              :placeholder="!comment.data ? '댓글을 쓰려면 이메일 인증이 필요합니다.' : ''"
-              no-resize
-              rows="3"
-              variant="outlined"
+            :model-value="comment.data"
+            :readonly="!comment.data"
+            :placeholder="
+              !comment.data ? '댓글을 쓰려면 이메일 인증이 필요합니다.' : ''
+            "
+            no-resize
+            rows="3"
+            variant="outlined"
           ></v-textarea>
         </v-banner>
         <div class="d-flex justify-end">
-          <v-btn variant="flat" color="info" @click="writeComment">댓글 쓰기</v-btn>
+          <v-btn variant="flat" color="info" @click="writeComment"
+            >댓글 쓰기</v-btn
+          >
         </div>
       </v-card>
 
-      <div v-for="(item, index) in comment.commentList"
-           :key="index">
-        <v-banner
-            :avatar="item.img"
-            lines="three"
-        >
+      <div v-for="(item, index) in comment.commentList" :key="index">
+        <v-banner :avatar="item.img" lines="three">
           <v-banner-text>
             {{ item.nickName }}
           </v-banner-text>
@@ -116,11 +102,11 @@
               <v-spacer></v-spacer>
 
               <v-btn variant="text" @click="likeDecrease">
-                <font-awesome-icon icon="fa-chevron-down"/>
+                <font-awesome-icon icon="fa-chevron-down" />
               </v-btn>
               {{ mainContents.like }}
               <v-btn variant="text" @click="likeIncrement">
-                <font-awesome-icon icon="fa-chevron-up"/>
+                <font-awesome-icon icon="fa-chevron-up" />
               </v-btn>
             </div>
           </v-banner-text>
@@ -128,13 +114,13 @@
 
           <v-spacer></v-spacer>
           <v-btn
-              variant="text"
-              v-if="item.childComments.length > 0"
-              @click="showComment(index)"
+            variant="text"
+            v-if="item.childComments.length > 0"
+            @click="showComment(index)"
           >
             <font-awesome-icon
-                :icon="show ? 'fa-chevron-up' : 'fa-chevron-down'"
-                class="pr-2"
+              :icon="show ? 'fa-chevron-up' : 'fa-chevron-down'"
+              class="pr-2"
             />
             댓글 {{ item.childComments.length }}개 보기
           </v-btn>
@@ -143,19 +129,17 @@
             <div>
               <v-divider></v-divider>
 
-              <div v-for="(child, idx) in item.childComments"
-                   :key="idx">
-                <v-banner
-                    :avatar="child.img"
-                    lines="three"
-                >
+              <div v-for="(child, idx) in item.childComments" :key="idx">
+                <v-banner :avatar="child.img" lines="three">
                   <v-banner-text>
                     {{ child.nickName }}
                   </v-banner-text>
                   <v-banner-text>
                     <div class="d-flex">
                       <font-awesome-icon icon="fa-eye" />
-                      <span class="font-medium ml-1"> {{ child.activityScore }} </span>
+                      <span class="font-medium ml-1">
+                        {{ child.activityScore }}
+                      </span>
                       <span class="sr-only">views</span>
                       ·
                       <span class="font-medium ml-1"> {{ child.regDt }} </span>
@@ -163,31 +147,20 @@
                       <v-spacer></v-spacer>
 
                       <v-btn variant="text" @click="likeDecrease">
-                        <font-awesome-icon icon="fa-chevron-down"/>
+                        <font-awesome-icon icon="fa-chevron-down" />
                       </v-btn>
                       {{ mainContents.like }}
                       <v-btn variant="text" @click="likeIncrement">
-                        <font-awesome-icon icon="fa-chevron-up"/>
+                        <font-awesome-icon icon="fa-chevron-up" />
                       </v-btn>
                     </div>
                   </v-banner-text>
                   <v-card-text> {{ child.data }} </v-card-text>
-
-
-
                 </v-banner>
-
-
-
               </div>
             </div>
           </v-expand-transition>
-
-
-
         </v-banner>
-
-
       </div>
     </v-container>
   </v-sheet>
@@ -198,11 +171,7 @@ import { reactive } from 'vue';
 
 export default {
   setup() {
-    const tags = [
-      'JAVA',
-      'Back-end',
-      'study',
-    ];
+    const tags = ['JAVA', 'Back-end', 'study'];
 
     let mainContents = reactive({
       title: '가나다라마바사아자차카',
@@ -210,7 +179,7 @@ export default {
       regDt: '20분전',
       data: 'aaaaaaaaaa',
       img: 'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg',
-      like: 3
+      like: 3,
     });
 
     let comment = {
@@ -241,15 +210,16 @@ export default {
               data: '대댓2',
               like: '0',
               img: 'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg',
-            },{
+            },
+            {
               nickName: '밈두니',
               activityScore: '2.6k',
               regDt: '1시간전',
               data: '대댓3',
               like: '0',
               img: 'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg',
-            }
-          ]
+            },
+          ],
         },
         {
           nickName: '솔솔1',
@@ -258,8 +228,7 @@ export default {
           data: '댓글을 달아봅니다dsdsdads',
           like: '1',
           img: 'https://cdn.vuetifyjs.com/images/parallax/material2.jpg',
-          childComments: [
-          ]
+          childComments: [],
         },
         {
           nickName: '솔솔2',
@@ -276,37 +245,37 @@ export default {
               data: '댓글달아유',
               like: '0',
               img: 'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg',
-            }
-          ]
-        }
-      ]
-    }
+            },
+          ],
+        },
+      ],
+    };
 
     const sharedBtn = () => {
-      alert("공유");
-    }
+      alert('공유');
+    };
 
     const bookmarkBtn = () => {
-      alert("북마크");
-    }
+      alert('북마크');
+    };
     const writeComment = () => {
-      alert("댓글 쓰기");
-    }
+      alert('댓글 쓰기');
+    };
 
     function likeIncrement() {
       mainContents.like++;
     }
 
     function likeDecrease() {
-      if(mainContents.like > 0){
+      if (mainContents.like > 0) {
         mainContents.like--;
       }
     }
 
-    const showComment = (index) => {
-      alert(">>> idx : " + index);
+    const showComment = index => {
+      alert('>>> idx : ' + index);
       return !this.show;
-    }
+    };
     return {
       mainContents,
       tags,
@@ -317,12 +286,10 @@ export default {
       likeIncrement,
       likeDecrease,
       show: false,
-      showComment
-    }
+      showComment,
+    };
   },
-}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

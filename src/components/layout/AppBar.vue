@@ -27,7 +27,6 @@
       </router-link>
 
       <AppSettingBar />
-
     </v-container>
   </v-app-bar>
 </template>

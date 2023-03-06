@@ -27,7 +27,6 @@
 </template>
 
 <script>
-import { ref } from 'vue';
 import TabList from '@/components/TabList.vue';
 import PageContent from '@/components/PageContent.vue';
 
