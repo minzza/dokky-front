@@ -1,39 +1,34 @@
 <template>
   <div class="pb-6">
     <div class="text-body-1 text-grey">본문</div>
-    <QuillEditor/>
+    <QuillEditor />
   </div>
 </template>
 
 <script>
-import { QuillEditor } from '@vueup/vue-quill'
-import '@vueup/vue-quill/dist/vue-quill.snow.css'
+import { QuillEditor } from '@vueup/vue-quill';
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
 export default {
   components: {
-    QuillEditor
+    QuillEditor,
   },
   setup() {
-    const options =
-      {
-        debug: 'info',
-        modules: {
-          toolbar: [
-            'bold',
-            'italic',
-            'underline'
-          ]
-        },
-        placeholder: '내용을 입력하세요!',
-        readOnly: true,
-        theme: 'snow',
-      }
+    const options = {
+      debug: 'info',
+      modules: {
+        toolbar: ['bold', 'italic', 'underline'],
+      },
+      placeholder: '내용을 입력하세요!',
+      readOnly: true,
+      theme: 'snow',
+    };
 
     return {
-      options
-    }
-  }
-}
+      options,
+    };
+  },
+};
 </script>
 
 <style>
