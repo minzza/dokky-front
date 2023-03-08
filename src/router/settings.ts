@@ -1,4 +1,4 @@
-import SettingPageLayout from "@/components/layout/SettingPageLayout.vue";
+import SettingPageLayout from '@/components/layout/SettingPageLayout.vue';
 
 const myProfile = () => import('../views/settings/Profile.vue');
 const myAccount = () => import('../views/settings/Account.vue');
