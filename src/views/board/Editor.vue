@@ -1,8 +1,5 @@
 <template>
-  <div class="pb-6">
-    <div class="text-body-1 text-grey">본문</div>
-    <QuillEditor />
-  </div>
+  <QuillEditor />
 </template>
 
 <script>

@@ -23,6 +23,7 @@ import {
   faArrowUpFromBracket,
   faChevronUp,
   faChevronDown,
+  faCircleExclamation,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -49,6 +50,7 @@ library.add(
   faArrowUpFromBracket,
   faChevronUp,
   faChevronDown,
+  faCircleExclamation,
 );
 loadFonts();
 

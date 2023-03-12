@@ -35,7 +35,10 @@
           </template>
         </v-autocomplete>
 
-        <Editor />
+        <div class="pb-6">
+          <div class="text-body-1 text-grey">본문</div>
+          <Editor />
+        </div>
 
         <div class="d-flex justify-end" style="gap: 1rem">
           <v-btn variant="outlined" @click="cancelBtn">취소</v-btn>
