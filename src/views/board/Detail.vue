@@ -86,7 +86,11 @@
         </div>
       </v-card>
 
-      <div v-for="(item, index) in comment.commentList" :key="index">
+      <v-slide-group-item
+        v-for="(item, index) in comment.commentList"
+        :key="index"
+        v-slot="{ isSelected, toggle }"
+      >
         <v-banner :avatar="item.img" lines="three">
           <v-banner-text>
             {{ item.nickName }}
@@ -116,16 +120,16 @@
           <v-btn
             variant="text"
             v-if="item.childComments.length > 0"
-            @click="showComment(index)"
+            @click="toggle"
           >
             <font-awesome-icon
-              :icon="show ? 'fa-chevron-up' : 'fa-chevron-down'"
+              :icon="isSelected ? 'fa-chevron-up' : 'fa-chevron-down'"
               class="pr-2"
             />
             댓글 {{ item.childComments.length }}개 보기
           </v-btn>
 
-          <v-expand-transition>
+          <v-scale-transition v-if="isSelected">
             <div>
               <v-divider></v-divider>
 
@@ -159,9 +163,9 @@
                 </v-banner>
               </div>
             </div>
-          </v-expand-transition>
+          </v-scale-transition>
         </v-banner>
-      </div>
+      </v-slide-group-item>
     </v-container>
   </v-sheet>
 </template>
@@ -271,9 +275,9 @@ export default {
         mainContents.like--;
       }
     }
-
+    let commentIdx;
     const showComment = index => {
-      return !this.show;
+      this.commentIdx = index;
     };
 
     return {
@@ -285,8 +289,9 @@ export default {
       writeComment,
       likeIncrement,
       likeDecrease,
-      show: false,
       showComment,
+      commentIdx,
+      model: null,
     };
   },
 };

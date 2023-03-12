@@ -9,6 +9,7 @@ const jobs = () => import('../views/Jobs.vue');
 const notice = () => import('../views/Notice.vue');
 const newBoard = () => import('../views/board/New.vue');
 const boardDetail = () => import('../views/board/Detail.vue');
+const newCompany = () => import('../views/company/New.vue');
 
 export default {
   path: '/',
@@ -61,7 +62,7 @@ export default {
     },
     {
       path: 'questions/create',
-      component: newBoard,
+      component: newCompany,
       props: { title: '회사 등록' },
     },
     {
