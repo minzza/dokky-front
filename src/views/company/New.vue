@@ -45,23 +45,22 @@
               >
                 <div style="width: 150px; height: 150px">
                   <v-img
-                    v-if="companyLogo"
                     :src="companyLogo"
                     :width="150"
                     :height="150"
                     aspect-ratio="1/1"
                     cover
-                  />
-
-                  <div v-else>
-                    <v-card-text class="d-flex justify-center"
-                      >회사로고 등록</v-card-text
-                    >
-                    <v-card-text class="justify-center text-caption text-grey"
-                      >bmp, jpg, jpeg, png, webp 포맷 <br />
-                      256x256 사이즈</v-card-text
-                    >
-                  </div>
+                  >
+                    <div v-if="!companyLogo">
+                      <v-card-text class="d-flex justify-center"
+                        >회사로고 등록</v-card-text
+                      >
+                      <v-card-text class="justify-center text-caption text-grey"
+                        >bmp, jpg, jpeg, png, webp 포맷 <br />
+                        256x256 사이즈</v-card-text
+                      >
+                    </div>
+                  </v-img>
                   <v-expand-transition>
                     <div
                       v-if="isHovering"
@@ -212,11 +211,10 @@ export default {
       if (data.files && data.files[0]) {
         const file = data.files[0];
         let reader = new FileReader();
-        reader.onload = e => {
-          console.log('e.target.result : ', e.target.result);
+        reader.readAsDataURL(file);
+        reader.onload = function (e) {
           this.companyLogo = e.target.result;
         };
-        reader.readAsDataURL(file);
       }
     }
 
