@@ -51,6 +51,8 @@
 
 <script>
 import Editor from '@/views/board/Editor.vue';
+import { getAxios, postAxiosJsonHeader } from '@/js/common/axios.ts';
+import { GET_MEMBER_INFO } from '@/js/common/api.ts';
 
 export default {
   components: { Editor },
@@ -71,9 +73,23 @@ export default {
 
     const cancelBtn = () => {
       alert('작성을 취소하시겠습니까?');
+      const params = {
+        name: '최민준',
+        age: 33,
+      };
+      postAxiosJsonHeader(GET_MEMBER_INFO, params).then(res => {
+        alert('POST 서버통신 res : ' + res);
+      });
     };
+
     const submitBtn = () => {
       alert('아직 등록은 기다리세욤');
+      const params = {
+        name: '장솔',
+        age: 28,
+      };
+      const res = getAxios(GET_MEMBER_INFO, params);
+      alert('GET 서버통신 res : ' + res);
     };
 
     return {
